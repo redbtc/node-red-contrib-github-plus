@@ -25,7 +25,6 @@
   ],
   "node-red": {
     "nodes": {
-      "transform-text": "./dist/nodes/transform-text/transform-text.js",
       "github-api-config": "./dist/nodes/github-api-config/github-api-config.js",
       "github-rest-api": "./dist/nodes/github-rest-api/github-rest-api.js"
     }
