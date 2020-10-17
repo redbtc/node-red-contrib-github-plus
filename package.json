@@ -31,7 +31,7 @@
     }
   },
   "dependencies": {
-    "@octokit/auth": "^2.0.0",
+    "@octokit/auth-app": "^2.7.0",
     "@octokit/request": "^5.4.9"
   },
   "devDependencies": {

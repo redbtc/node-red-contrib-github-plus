@@ -1,5 +1,10 @@
 import { EditorNodeProperties } from "node-red";
-import { GithubApiConfigOptions } from "../../shared/types";
+import {
+  GithubApiConfigCredentials,
+  GithubApiConfigOptions,
+} from "../../shared/types";
+
+export type GithubApiConfigEditorNodeCredentials = GithubApiConfigCredentials;
 
 export interface GithubApiConfigEditorNodeProperties
   extends EditorNodeProperties,

@@ -1,3 +1,8 @@
 export interface GithubApiConfigOptions {
-  // node options
+  appId: string; // application id
+  instId: string; // installation id
+}
+
+export interface GithubApiConfigCredentials {
+  privKey: string; // private key
 }

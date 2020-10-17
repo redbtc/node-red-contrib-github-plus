@@ -1,4 +1,6 @@
 import { NodeInitializer } from "node-red";
+import { GithubApiClient } from "../shared/github-api-client";
+import { githubApiConfigCredentials } from "./modules/config";
 import { GithubApiConfigNode, GithubApiConfigNodeDef } from "./modules/types";
 
 const nodeInit: NodeInitializer = (RED): void => {
@@ -8,13 +10,24 @@ const nodeInit: NodeInitializer = (RED): void => {
   ): void {
     RED.nodes.createNode(this, config);
 
-    this.on("input", (msg, send, done) => {
-      send(msg);
-      done();
-    });
+    if (
+      config &&
+      config.appId &&
+      config.instId &&
+      this.credentials &&
+      this.credentials.privKey
+    ) {
+      this.client = new GithubApiClient(
+        config.appId,
+        this.credentials.privKey,
+        config.instId
+      );
+    }
   }
 
-  RED.nodes.registerType("github-api-config", GithubApiConfigNodeConstructor);
+  RED.nodes.registerType("github-api-config", GithubApiConfigNodeConstructor, {
+    credentials: githubApiConfigCredentials,
+  });
 };
 
 export = nodeInit;

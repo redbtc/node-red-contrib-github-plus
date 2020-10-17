@@ -1,7 +1,14 @@
 import { Node, NodeDef } from "node-red";
-import { GithubApiConfigOptions } from "../shared/types";
+import { GithubApiClient } from "../../shared/github-api-client";
+import {
+  GithubApiConfigCredentials,
+  GithubApiConfigOptions,
+} from "../shared/types";
 
-export interface GithubApiConfigNodeDef extends NodeDef, GithubApiConfigOptions {}
+export interface GithubApiConfigNodeDef
+  extends NodeDef,
+    GithubApiConfigOptions {}
 
-// export interface GithubApiConfigNode extends Node {}
-export type GithubApiConfigNode = Node;
+export interface GithubApiConfigNode extends Node<GithubApiConfigCredentials> {
+  client?: GithubApiClient;
+}
