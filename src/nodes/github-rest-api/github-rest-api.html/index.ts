@@ -24,7 +24,10 @@ RED.nodes.registerType<GithubRestApiEditorNodeProperties>("github-rest-api", {
       const method = parts[0];
       let path = parts.length > 1 ? parts[parts.length - 1] : "";
       if (path.length > 20) {
-        path = "…" + path.substr(-20);
+        const pathParts = path.split("/");
+        if (pathParts.length > 2) {
+          path = "…/" + pathParts[pathParts.length - 1];
+        }
       }
       return [method, path].join(" ");
     }
