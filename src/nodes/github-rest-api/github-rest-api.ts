@@ -59,7 +59,7 @@ const nodeInit: NodeInitializer = (RED): void => {
         this.status(statuses.sending);
         const resData = await githubClient.request(endpoint, payload);
         this.status(statuses.idle);
-        msg.payload = resData;
+        msg.payload = resData.data;
       } catch (e) {
         this.status(statuses.error);
         done(e);
