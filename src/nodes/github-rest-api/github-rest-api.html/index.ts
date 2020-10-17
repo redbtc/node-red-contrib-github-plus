@@ -4,16 +4,31 @@ import { GithubRestApiEditorNodeProperties } from "./modules/types";
 declare const RED: EditorRED;
 
 RED.nodes.registerType<GithubRestApiEditorNodeProperties>("github-rest-api", {
-  category: "function",
-  color: "#a6bbcf",
+  category: "github",
+  color: "#C0C0C0",
   defaults: {
+    endpoint: { value: "" },
+    client: { value: "", type: "github-api-config", required: true },
     name: { value: "" },
   },
   inputs: 1,
   outputs: 1,
-  icon: "file.png",
+  icon: "github-logo.svg",
   paletteLabel: "github rest api",
   label: function () {
-    return this.name || "github rest api";
+    if (this.name) {
+      return this.name;
+    }
+    if (this.endpoint) {
+      return this.endpoint.length > 25
+        ? this.endpoint.substr(0, 25) + "…"
+        : this.endpoint;
+    }
+    return "github rest api";
+  },
+  oneditsave: function () {
+    let val = $("#node-input-endpoint").val()?.toString() || "";
+    val = val.trim();
+    $("#node-input-endpoint").val(val);
   },
 });

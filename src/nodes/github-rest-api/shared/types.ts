@@ -1,3 +1,4 @@
 export interface GithubRestApiOptions {
-  // node options
+  client: string;
+  endpoint: string;
 }
