@@ -20,9 +20,13 @@ RED.nodes.registerType<GithubRestApiEditorNodeProperties>("github-rest-api", {
       return this.name;
     }
     if (this.endpoint) {
-      return this.endpoint.length > 25
-        ? this.endpoint.substr(0, 25) + "…"
-        : this.endpoint;
+      const parts = this.endpoint.split(" ");
+      const method = parts[0];
+      let path = parts.length > 1 ? parts[parts.length - 1] : "";
+      if (path.length > 20) {
+        path = "…" + path.substr(-20);
+      }
+      return [method, path].join(" ");
     }
     return "github rest api";
   },
