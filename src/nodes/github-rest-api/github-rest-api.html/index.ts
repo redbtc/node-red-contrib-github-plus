@@ -5,7 +5,7 @@ declare const RED: EditorRED;
 
 RED.nodes.registerType<GithubRestApiEditorNodeProperties>("github-rest-api", {
   category: "github",
-  color: "#C0C0C0",
+  color: "#9CDAF1",
   defaults: {
     endpoint: { value: "" },
     client: { value: "", type: "github-api-config", required: true },
@@ -14,7 +14,7 @@ RED.nodes.registerType<GithubRestApiEditorNodeProperties>("github-rest-api", {
   inputs: 1,
   outputs: 1,
   icon: "github-logo.svg",
-  paletteLabel: "github rest api",
+  paletteLabel: "rest api",
   label: function () {
     if (this.name) {
       return this.name;
