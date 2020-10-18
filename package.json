@@ -26,7 +26,8 @@
   "node-red": {
     "nodes": {
       "github-api-config": "./dist/nodes/github-api-config/github-api-config.js",
-      "github-rest-api": "./dist/nodes/github-rest-api/github-rest-api.js"
+      "github-rest-api": "./dist/nodes/github-rest-api/github-rest-api.js",
+      "github-webhook": "./dist/nodes/github-webhook/github-webhook.js"
     }
   },
   "dependencies": {
