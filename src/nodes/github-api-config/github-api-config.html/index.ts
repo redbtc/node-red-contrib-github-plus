@@ -21,4 +21,32 @@ RED.nodes.registerType<
   label: function () {
     return this.name || "GitHub API client config";
   },
+  oneditprepare: function () {
+    $("#ghPemFile").on("change", (evt) => {
+      const files = (<HTMLInputElement>evt.target).files;
+
+      if (!files || files.length < 1) {
+        return;
+      }
+      const file = files[0];
+      const reader = new FileReader();
+
+      reader.onload = (_evt) => {
+        $("#ghPemFile").val("");
+        const text = reader.result?.toString().trim() || "";
+        if (
+          text.length < 100 ||
+          text.length > 10000 ||
+          !text.startsWith("-----BEGIN RSA PRIVATE KEY-----") ||
+          !text.endsWith("-----END RSA PRIVATE KEY-----")
+        ) {
+          RED.notifications.notify("Invalid key file", "error");
+          return;
+        }
+        $("#node-config-input-privKey").val(text);
+      };
+
+      reader.readAsText(file);
+    });
+  },
 });
