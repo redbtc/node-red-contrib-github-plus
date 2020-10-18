@@ -52,6 +52,20 @@ RED.nodes.registerType<
       $("#form-tips-path").html(root);
       $("#form-tips").show();
     }
+
+    $("#generateSecret").on("click", (evt) => {
+      evt.preventDefault();
+      const secretChars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let arr = new Uint8Array(40);
+      window.crypto.getRandomValues(arr);
+      arr = arr.map((x) => secretChars.charCodeAt(x % secretChars.length));
+      let secret = "";
+      arr.forEach((byte: number) => {
+        secret += String.fromCharCode(byte);
+      });
+      $("#node-input-secret").val(secret);
+    });
   },
   oneditsave: function () {
     let val = $("#node-input-path").val()?.toString() || "";
