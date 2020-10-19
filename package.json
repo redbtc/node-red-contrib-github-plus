@@ -18,6 +18,10 @@
     "release": "yarn build && yarn publish && git push --follow-tags"
   },
   "author": "Alex Kaul",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redbtc/node-red-contrib-github-plus"
+  },
   "license": "MIT",
   "keywords": [
     "node-red",
