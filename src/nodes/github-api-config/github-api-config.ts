@@ -20,7 +20,10 @@ const nodeInit: NodeInitializer = (RED): void => {
       this.client = new GithubApiClient(
         config.appId,
         this.credentials.privKey,
-        config.instId
+        config.instId,
+        {
+          "user-agent": config.ua || "node-red-contrib-github",
+        }
       );
     }
   }

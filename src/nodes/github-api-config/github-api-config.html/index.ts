@@ -15,6 +15,7 @@ RED.nodes.registerType<
   defaults: {
     appId: { value: "", validate: RED.validators.number(), required: true },
     instId: { value: "", validate: RED.validators.number(), required: true },
+    ua: { value: "" },
     name: { value: "" },
   },
   credentials: githubApiConfigCredentials,

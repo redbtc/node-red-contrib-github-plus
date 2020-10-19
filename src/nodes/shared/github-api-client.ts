@@ -13,13 +13,21 @@ export interface GithubApiConfigCredentials {
 
 export class GithubApiClient {
   public request: RequestInterface;
-  constructor(appId: string, privKey: string, instId: string) {
+  constructor(
+    appId: string,
+    privKey: string,
+    instId: string,
+    headers: {
+      "user-agent": string;
+    }
+  ) {
     const auth = createAppAuth({
       id: appId,
       privateKey: privKey,
       installationId: instId,
     });
     this.request = request.defaults({
+      headers,
       request: {
         hook: auth.hook,
       },
