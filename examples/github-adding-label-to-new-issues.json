@@ -1,0 +1,98 @@
+[
+  {
+    "id": "c4419a25.f43718",
+    "type": "github-webhook",
+    "z": "a1b0b10c.cd51a",
+    "path": "/github-webhook",
+    "name": "",
+    "x": 320,
+    "y": 340,
+    "wires": [["f1a8fb8d.6a3778"]]
+  },
+  {
+    "id": "f1a8fb8d.6a3778",
+    "type": "switch",
+    "z": "a1b0b10c.cd51a",
+    "name": "Which type?",
+    "property": "topic",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "issues",
+        "vt": "str"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 1,
+    "x": 510,
+    "y": 340,
+    "wires": [["87a4a50a.221488"]]
+  },
+  {
+    "id": "87a4a50a.221488",
+    "type": "switch",
+    "z": "a1b0b10c.cd51a",
+    "name": "Which action?",
+    "property": "payload.action",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "opened",
+        "vt": "str"
+      }
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 1,
+    "x": 700,
+    "y": 340,
+    "wires": [["b2affab1.141348"]]
+  },
+  {
+    "id": "6620878f.e1b268",
+    "type": "github-rest-api",
+    "z": "a1b0b10c.cd51a",
+    "endpoint": "POST /repos/{owner}/{repo}/issues/{issue_number}/labels",
+    "client": "ef21f219.57adb",
+    "name": "Add label",
+    "x": 920,
+    "y": 360,
+    "wires": [[]]
+  },
+  {
+    "id": "b2affab1.141348",
+    "type": "function",
+    "z": "a1b0b10c.cd51a",
+    "name": "Prep API data",
+    "func": "msg.payload = {\n    \"owner\": msg.payload.repository.owner.login,\n    \"repo\": msg.payload.repository.name,\n    \"issue_number\": msg.payload.issue.number,\n    \"labels\": [\"needs-response\"]\n}\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 900,
+    "y": 320,
+    "wires": [["6620878f.e1b268"]]
+  },
+  {
+    "id": "4c17fd91.505a14",
+    "type": "comment",
+    "z": "a1b0b10c.cd51a",
+    "name": "Add needs-response label to new issues",
+    "info": "",
+    "x": 400,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "ef21f219.57adb",
+    "type": "github-api-config",
+    "z": "",
+    "appId": "12345",
+    "instId": "12345678",
+    "ua": "add-label-app",
+    "name": ""
+  }
+]

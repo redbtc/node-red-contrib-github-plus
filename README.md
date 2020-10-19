@@ -86,9 +86,15 @@ When GitHub sends an event notification to the url where you setup a webhook nod
 - `msg.topic` - Name of the event that triggered the delivery. Value of `X-GitHub-Event` header.
 - `msg.payload` - Webhook event payload.
 
-## Examples
+## Example
 
-...
+### Adding Label To New Issues
+
+This example flow adds a `needs-response` label to all new issues opened in the repository where the app is installed.
+
+![Adding Label To New Issues](examples/github-adding-label-to-new-issues.png)
+
+Flow json for Node-RED: [github-adding-label-to-new-issues.json](examples/github-adding-label-to-new-issues.json)
 
 ## References
 
