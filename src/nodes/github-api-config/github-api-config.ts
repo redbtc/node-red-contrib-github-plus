@@ -22,7 +22,7 @@ const nodeInit: NodeInitializer = (RED): void => {
         this.credentials.privKey,
         config.instId,
         {
-          "user-agent": config.ua || "node-red-contrib-github",
+          "user-agent": config.ua || "node-red-contrib-github-plus",
         }
       );
     }

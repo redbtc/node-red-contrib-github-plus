@@ -7,7 +7,7 @@
 Run the following command in the root directory of your Node-RED instance:
 
 ```
-npm install --save node-red-contrib-github
+npm install --save node-red-contrib-github-plus
 ```
 
 ## Usage
@@ -50,7 +50,7 @@ And finally configure your GitHub API client:
 4. Copy-paste `App ID` from the App Settings page on GitHub to the node editor
 5. In the `Private Key` open the `.PEM` key file you downloaded from GitHub
 6. Copy-paste `Inst ID` from the app installation config page url to the node editor
-7. In then `User-Agent` enter your username or the name of your GitHub Application. Empty value defaults to `node-red-contrib-github`. [Read more](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#user-agent-required) why it is required.
+7. In then `User-Agent` enter your username or the name of your GitHub Application. Empty value defaults to `node-red-contrib-github-plus`. [Read more](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#user-agent-required) why it is required.
 8. Push `Update`
 
 #### Setting Up GitHub Webhooks
