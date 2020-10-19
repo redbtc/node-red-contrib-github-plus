@@ -91,9 +91,9 @@ When GitHub sends an event notification to the url where you setup a webhook nod
 
 ## References
 
-REST API Reference: https://docs.github.com/en/free-pro-team@latest/rest/reference
-REST API Endpoints available for GitHub Apps: https://docs.github.com/en/free-pro-team@latest/rest/overview/endpoints-available-for-github-apps
-Webhook events and payloads: https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhook-events-and-payloads
+- REST API Reference: https://docs.github.com/en/free-pro-team@latest/rest/reference
+- REST API Endpoints available for GitHub Apps: https://docs.github.com/en/free-pro-team@latest/rest/overview/endpoints-available-for-github-apps
+- Webhook events and payloads: https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhook-events-and-payloads
 
 ## Backers 💝
 
