@@ -7,6 +7,7 @@ RED.nodes.registerType<GithubRestApiEditorNodeProperties>("github-rest-api", {
   category: "github",
   color: "#9CDAF1",
   defaults: {
+    mediaType: { value: "" },
     endpoint: { value: "" },
     client: { value: "", type: "github-api-config", required: true },
     name: { value: "" },

@@ -9,6 +9,11 @@
       to call.
     </dd>
 
+    <dt class="optional">mediaType <span class="property-type">string</span></dt>
+    <dd>
+      If not configured in the node, this optional property sets the Media Type for the REST call.
+    </dd>
+
     <dt class="optional">payload <span class="property-type">object</span></dt>
     <dd>Sent as the API input data.</dd>
   </dl>
@@ -18,6 +23,11 @@
     <dt>payload <span class="property-type">object</span></dt>
     <dd>The GitHub REST API response's data.</dd>
   </dl>
+
+  <h3>Details</h3>
+  <p>
+    When Media Type not configured in the node, nor provided in `msg`, it defaults to: <i>application/vnd.github.v3+json</i>
+  </p>
 
   <h3>References</h3>
   <ul>
@@ -51,6 +61,14 @@
         >REST API Reference</a
       >
       - documentation to learn about the resources available in the GitHub REST API
+    </li>
+    <li>
+      <a
+        href="https://docs.github.com/en/free-pro-team@latest/rest/overview/media-types"
+        rel="noreferrer noopener"
+        >REST Media Types</a
+      >
+      - documentation to learn about custom media types in the GitHub REST API
     </li>
     <li>
       <a

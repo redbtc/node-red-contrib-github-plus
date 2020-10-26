@@ -78,6 +78,8 @@ To make REST API requests using the `github-rest-api` node, select API client yo
 
 After executing a request the node outputs a message with the response data set to `msg.payload`.
 
+If an API endpoint is in Preview mode and requires a Media Type to be set in the Accept header, then specify it in the Media Type node setting or via `msg.mediaType` (if the node setting is empty).
+
 ### Handling Incoming Webhook Payloads
 
 When GitHub sends an event notification to the url where you setup a webhook node to listen on, it will trigger the node output with the following properties:
@@ -100,6 +102,7 @@ Flow json for Node-RED: [github-adding-label-to-new-issues.json](examples/github
 
 - REST API Reference: https://docs.github.com/en/free-pro-team@latest/rest/reference
 - REST API Endpoints available for GitHub Apps: https://docs.github.com/en/free-pro-team@latest/rest/overview/endpoints-available-for-github-apps
+- REST API Media Types: https://docs.github.com/en/free-pro-team@latest/rest/overview/media-types
 - Webhook events and payloads: https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhook-events-and-payloads
 
 ## Backers 💝

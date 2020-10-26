@@ -20,6 +20,7 @@ const statuses: Record<
 interface GithubMessage extends NodeMessageInFlow {
   endpoint?: unknown;
   payload?: unknown;
+  mediaType?: unknown;
 }
 
 const nodeInit: NodeInitializer = (RED): void => {
@@ -44,8 +45,16 @@ const nodeInit: NodeInitializer = (RED): void => {
 
     this.on("input", async (msg: GithubMessage, send, done) => {
       const endpoint = config.endpoint || msg.endpoint;
+      const mediaType =
+        config.mediaType || msg.mediaType || "application/vnd.github.v3+json";
+
       if (typeof endpoint !== "string") {
         done(new Error("Invalid Endpoint: " + endpoint));
+        return;
+      }
+
+      if (typeof mediaType !== "string") {
+        done(new Error("Invalid Media Type: " + mediaType));
         return;
       }
 
@@ -57,7 +66,12 @@ const nodeInit: NodeInitializer = (RED): void => {
 
       try {
         this.status(statuses.sending);
-        const resData = await githubClient.request(endpoint, payload);
+        const resData = await githubClient.request(endpoint, {
+          headers: {
+            Accept: mediaType,
+          },
+          ...payload,
+        });
         this.status(statuses.idle);
         msg.payload = resData.data;
       } catch (e) {
