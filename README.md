@@ -107,8 +107,6 @@ Flow json for Node-RED: [github-adding-label-to-new-issues.json](examples/github
 
 ## Backers 💝
 
-[[Become a backer](https://mynode.redbtc.org/gh-donate)]
-
 [![Red BTC Backer](https://mynode.redbtc.org/gh-backer/top/0/avatar/60)](https://mynode.redbtc.org/gh-backer/top/0/profile)
 [![Red BTC Backer](https://mynode.redbtc.org/gh-backer/top/1/avatar/60)](https://mynode.redbtc.org/gh-backer/top/1/profile)
 [![Red BTC Backer](https://mynode.redbtc.org/gh-backer/top/2/avatar/60)](https://mynode.redbtc.org/gh-backer/top/2/profile)
@@ -119,6 +117,8 @@ Flow json for Node-RED: [github-adding-label-to-new-issues.json](examples/github
 [![Red BTC Backer](https://mynode.redbtc.org/gh-backer/top/7/avatar/60)](https://mynode.redbtc.org/gh-backer/top/7/profile)
 [![Red BTC Backer](https://mynode.redbtc.org/gh-backer/top/8/avatar/60)](https://mynode.redbtc.org/gh-backer/top/8/profile)
 [![Red BTC Backer](https://mynode.redbtc.org/gh-backer/top/9/avatar/60)](https://mynode.redbtc.org/gh-backer/top/9/profile)
+
+[[Donate](https://mynode.redbtc.org/gh-donate)] Thank you for your support! 🙌
 
 ## Developing Nodes
 
