@@ -22,7 +22,7 @@ export class GithubApiClient {
     }
   ) {
     const auth = createAppAuth({
-      id: appId,
+      appId: appId,
       privateKey: privKey,
       installationId: instId,
     });
